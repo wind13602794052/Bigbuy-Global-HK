@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bigbuy Global HK Limited — Sample design, mold development, OEM/ODM for automotive, machinery and electronics. Dongguan production base since 2017." />
+  <title>Bigbuy Global HK Limited | Engineering with Craftsmanship</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0c1222;
+      --navy: #0f2744;
+      --navy-light: #1a3a5c;
+      --gold: #c6a035;
+      --gold-soft: #e8d5a3;
+      --paper: #f7f5f0;
+      --white: #ffffff;
+      --muted: #5c6578;
+      --line: rgba(15, 39, 68, 0.12);
+      --accent-red: #b22222;
+      --radius: 6px;
+      --shadow: 0 12px 40px rgba(12, 18, 34, 0.08);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, -apple-system, "PingFang HK", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    a { color: var(--navy-light); text-decoration: none; }
+    a:hover { text-decoration: underline; color: var(--gold); }
+
+    /* Top ribbon — HK corporate accent */
+    .ribbon {
+      background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy) 100%);
+      color: var(--gold-soft);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px 16px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 245, 240, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brand strong {
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      color: var(--navy);
+    }
+    .brand span {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      justify-content: flex-end;
+    }
+    nav a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    nav a:hover { color: var(--gold); text-decoration: none; }
+
+    .hero {
+      position: relative;
+      background: var(--navy);
+      color: var(--white);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 88px;
+    }
+    .hero h1 {
+      font-family: "Noto Serif TC", "DM Sans", serif;
+      font-weight: 700;
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      line-height: 1.25;
+      margin: 0 0 12px;
+      letter-spacing: 0.02em;
+    }
+    .hero .tagline {
+      color: var(--gold-soft);
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero p.lead {
+      max-width: 720px;
+      opacity: 0.92;
+      font-size: 1.02rem;
+      margin: 0 0 28px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .btn-primary:hover { filter: brightness(1.05); text-decoration: none; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.45);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); text-decoration: none; }
+
+    section {
+      padding: 72px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    main > section:nth-of-type(2n + 3) {
+      background: var(--white);
+    }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--navy);
+    }
+    .section-head h2 {
+      margin: 0;
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(1.5rem, 3vw, 1.85rem);
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .section-head .en {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: var(--navy);
+    }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .bilingual .en-block { margin-bottom: 14px; }
+    .bilingual .zh {
+      font-family: "Noto Serif TC", "PingFang TC", serif;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 39, 68, 0.06);
+      color: var(--navy);
+      border: 1px solid var(--line);
+    }
+
+    .clients {
+      margin-top: 36px;
+    }
+    .clients h3 {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+    .client-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .client-logos span {
+      padding: 14px 20px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--navy-light);
+      letter-spacing: 0.04em;
+    }
+
+    .philosophy {
+      margin-top: 40px;
+      padding: 28px;
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(90deg, rgba(198, 160, 53, 0.12), transparent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .philosophy p {
+      margin: 0;
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+    }
+    .philosophy .en-quote {
+      margin-top: 10px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Products grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .product-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0 0 16px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 120px;
+      overflow: hidden;
+    }
+    .product-card .product-thumb {
+      aspect-ratio: 1;
+      background: linear-gradient(160deg, #f0f2f5, #e8eaee);
+      border-bottom: 1px solid var(--line);
+    }
+    .product-card .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .product-card .idx {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin: 14px 18px 8px;
+    }
+    .product-card h4 {
+      margin: 0 18px 6px;
+      font-size: 15px;
+      color: var(--navy);
+    }
+    .product-card .sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 18px;
+      margin-top: auto;
+    }
+
+    /* Case study */
+    .case-block {
+      margin-bottom: 32px;
+    }
+    .case-block h3 {
+      font-size: 1rem;
+      color: var(--navy);
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .case-block ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    .case-block li { margin-bottom: 8px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .metric {
+      text-align: center;
+      padding: 22px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      border-bottom: 3px solid var(--gold);
+    }
+    .metric strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--gold-soft);
+      margin-bottom: 4px;
+    }
+    .metric span { font-size: 12px; opacity: 0.9; }
+
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      padding: 48px 24px 32px;
+      font-size: 14px;
+    }
+    footer .section-inner { max-width: var(--max); }
+    footer a { color: var(--gold-soft); }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+    footer h3 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .footer-bottom {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 12px;
+      opacity: 0.75;
+      text-align: center;
+    }
+
+    .case-figure {
+      margin: 12px 0 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .case-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .customer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+    .customer-card {
+      margin: 0;
+      padding: 24px 20px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+    }
+    .customer-card img {
+      width: 100%;
+      max-width: 220px;
+      max-height: 72px;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      nav ul { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ribbon">Hong Kong · Global Supply · Dongguan Production Base</div>
+
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <strong>Bigbuy Global HK Limited</strong>
+        <span>Sample · Mold · OEM / ODM · B2B</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#clients">Clients</a></li>
+          <li><a href="#design">Design &amp; Optimization</a></li>
+          <li><a href="#cost">Cost Advantages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <p class="tagline">Engineering with Craftsmanship · Boundless Innovation</p>
+        <h1>Premium sample design, structural optimization &amp; mold development for industrial OEM / ODM</h1>
+        <p class="lead">
+          The sample-making team was established in <strong>2017</strong>, with its production base in <strong>Dongguan, Guangdong</strong>. We focus on sample design and optimization and the development of corresponding molds, supporting prototype development and small-batch production for <strong>auto parts, hardware machinery, electronics and electrical appliances</strong>.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="https://www.bigbuy.cn" target="_blank" rel="noopener noreferrer">B2B — bigbuy.cn</a>
+        </div>
+        <div class="clients" style="margin-top: 48px;">
+          <h3>Selected customers we have served</h3>
+          <div class="client-logos" role="list">
+            <span role="listitem">Continental</span>
+            <span role="listitem">Lingxiao</span>
+            <span role="listitem">Mercedes-Benz</span>
+            <span role="listitem">Volkswagen</span>
+          </div>
+          <p style="margin-top: 16px; font-size: 14px; opacity: 0.85; max-width: 640px;">
+            We have participated in the development and manufacturing of <strong>more than four thousand</strong> different product components. Our team brings deep know-how in design, assembly and manufacturing solutions, plus practical experience in process optimization and cost control for existing products.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>首页概要 · Home</h2>
+          <span class="en">Company profile &amp; strengths</span>
+        </div>
+        <div class="grid-2 bilingual">
+          <div class="card">
+            <h3>Company profile</h3>
+            <div class="en-block">
+              <p>We always uphold the philosophy of <strong>“Engineering with craftsmanship and boundless innovation”</strong>. We look forward to being your premium OEM / ODM partner for mutual success. Services have extended from OEM / ODM to B2B — see <a href="https://www.bigbuy.cn" target="_blank" rel="noopener">bigbuy.cn</a> for details.</p>
+            </div>
+            <p class="zh">我們始終奉行「精工匠心，創新無界」的企業理念，誠摯期待成為您優質的 OEM／ODM 服務合作夥伴，攜手共贏。除 OEM／ODM 外，我們亦將服務延伸至 B2B，詳情請瀏覽 bigbuy.cn。</p>
+          </div>
+          <div class="card">
+            <h3>Core advantages</h3>
+            <p style="color: var(--muted); margin-bottom: 12px;">Integrated capability from structure to tooling and quick iteration — aligned with our Hong Kong–Greater Bay Area operating model.</p>
+            <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px;">
+              <li><strong>Structural design support:</strong> strength &amp; transmission; assembly &amp; joints; appearance; mold &amp; integrated forming support.</li>
+              <li><strong>Rapid prototyping:</strong> sample cycles as fast as ~4 weeks (project-dependent).</li>
+              <li><strong>Cost optimization:</strong> direct factory interface; mature supply chain.</li>
+              <li><strong>Quality first:</strong> drawings, technical dialogue, and rigorous review loops.</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">Design for manufacturing</span>
+              <span class="pill">Die casting &amp; injection</span>
+              <span class="pill">Small batch</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 28px;">
+          <div class="card">
+            <h3>Engineering dimensions we optimise</h3>
+            <p style="color: var(--muted); font-size: 15px;"><strong>Functional / structural:</strong> manufacturing strength, assembly strength, function strength; assembly sequence; integrated injection &amp; die casting; cost.</p>
+            <p style="color: var(--muted); font-size: 15px; margin-top: 10px;"><strong>Exterior / finishing:</strong> colour harmony, plastic grain &amp; shrinkage; finishing options (painting, powder, e-coat, anodising, etc.); assembly gaps; markings (screen print, UV, laser).</p>
+          </div>
+          <div class="card">
+            <h3>Team credentials (summary)</h3>
+            <p style="color: var(--muted); font-size: 15px;">Senior mechanical engineers with long-term experience in Taiwanese-invested enterprises (engineering &amp; mold management). Track record covering thousands of accessory and component programs with stable delivery into production.</p>
+          </div>
+        </div>
+
+        <div class="philosophy">
+          <p>精工匠心，創新無界</p>
+          <p class="en-quote">“Engineering with craftsmanship and boundless innovation.”</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" style="background: var(--white);">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>產品中心 · Products</h2>
+          <span class="en">18 categories — structure / mold / parts</span>
+        </div>
+        <p style="max-width: 720px; color: var(--muted); margin: -24px 0 28px;">
+          Gallery images from <code style="font-size: 13px;">image/</code> (2.1–2.18). Product titles below follow the current naming list (2.1–2.4 updated).
+        </p>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-thumb"><img src="image/2.1.png" alt="熔焊槍壓鑄模具" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.1</span><h4>熔焊槍壓鑄模具</h4><p class="sub">Welding torch die casting mold</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.2.png" alt="汽車前保險桿模具" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.2</span><h4>汽車前保險桿模具</h4><p class="sub">Automotive front bumper mold</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.3.png" alt="汽車油蓋配件模具" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.3</span><h4>汽車油蓋配件模具</h4><p class="sub">Automotive fuel cap parts mold</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.4.png" alt="汽車油蓋配件模具" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.4</span><h4>汽車油蓋配件模具</h4><p class="sub">Automotive fuel cap parts mold</p></article>
+
+          <article class="product-card"><div class="product-thumb"><img src="image/2.9.png" alt="水冷蓋子壓鑄模具" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.5</span><h4>水冷蓋子壓鑄模具</h4><p class="sub">Water-cooled cover die casting mold</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.10.png" alt="馬達殼壓鑄模具" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.6</span><h4>馬達殼壓鑄模具</h4><p class="sub">Motor housing die casting mold</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.7.png" alt="DL 水冷電子蓋板" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.7</span><h4>DL 水冷電子蓋板</h4><p class="sub">Water-cooled electronic cover</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.8.png" alt="電子設備支架" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.8</span><h4>電子設備支架</h4><p class="sub">Electronic device holder</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.5.png" alt="摩托車維修配件" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.9</span><h4>摩托車維修配件</h4><p class="sub">Motorcycle repair parts</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.6.png" alt="BC 剎車支架" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.10</span><h4>BC 剎車支架</h4><p class="sub">BC brake bracket</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.11.png" alt="鋅合金螺旋齒輪傳動配件" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.11</span><h4>鋅合金螺旋齒輪傳動配件</h4><p class="sub">Zinc alloy spiral gear transmission parts</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.12.png" alt="熔焊槍組件" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.12</span><h4>熔焊槍組件</h4><p class="sub">Welding torch assembly</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.13.png" alt="油箱口蓋子組合" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.13</span><h4>油箱口蓋子組合</h4><p class="sub">Fuel tank cap assembly</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.14.png" alt="車輛油蓋配件" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.14</span><h4>車輛油蓋配件</h4><p class="sub">Vehicle fuel cap parts</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.15.png" alt="通風接頭" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.15</span><h4>通風接頭</h4><p class="sub">Vent fitting</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.16.png" alt="工程車進氣彎頭一體" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.16</span><h4>工程車進氣彎頭一體</h4><p class="sub">Engineering vehicle intake elbow (one-piece)</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.17.png" alt="電子蓋板（EMI 塗層）" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.17</span><h4>電子蓋板（EMI 塗層）</h4><p class="sub">Electronic cover plate (EMI coating)</p></article>
+          <article class="product-card"><div class="product-thumb"><img src="image/2.18.png" alt="鋁合金陽極油路三通接頭" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.18</span><h4>鋁合金陽極油路三通接頭</h4><p class="sub">Aluminum anodized oil circuit tee fitting</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="clients" style="background: var(--paper);">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>合作客戶 · Clients</h2>
+          <span class="en">Partners we have served</span>
+        </div>
+        <p style="max-width: 720px; color: var(--muted); margin: -24px 0 28px;">
+          多年來服務汽車零部件、機械與電子電器等領域客戶；以下為部分合作客戶標識展示。<br />
+          Serving customers across automotive components, machinery and electronics — selected partner marks below.
+        </p>
+        <div class="customer-grid">
+          <figure class="customer-card"><img src="image/customer-1.png" alt="合作客戶 1" width="320" height="120" loading="lazy" decoding="async" /></figure>
+          <figure class="customer-card"><img src="image/customer-2.png" alt="合作客戶 2" width="320" height="120" loading="lazy" decoding="async" /></figure>
+          <figure class="customer-card"><img src="image/customer-3.png" alt="合作客戶 3" width="320" height="120" loading="lazy" decoding="async" /></figure>
+          <figure class="customer-card"><img src="image/customer-4.png" alt="合作客戶 4" width="320" height="120" loading="lazy" decoding="async" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="design">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>設計與優化案例</h2>
+          <span class="en">Design &amp; Optimization — connecting rod motion</span>
+        </div>
+        <div style="color: var(--muted); max-width: 900px;">
+          <p style="margin: 0;">
+            <strong>Product:</strong> 連桿運動結構 · Connecting rod movement structure
+          </p>
+          <figure class="case-figure" style="margin-top: 14px; max-width: 720px;">
+            <img src="image/case_product.png" alt="連桿運動結構優化產品" width="1200" height="1200" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+        <div class="grid-2" style="margin-top: 24px;">
+          <div>
+            <h3 style="font-size: 15px; color: var(--navy); margin-bottom: 8px;">優化前 · Before optimization</h3>
+            <figure class="case-figure">
+              <img src="image/case-product-befor.png" alt="連桿運動結構優化前" width="900" height="900" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+          <div>
+            <h3 style="font-size: 15px; color: var(--navy); margin-bottom: 8px;">優化後 · After optimization</h3>
+            <figure class="case-figure">
+              <img src="image/case-product-after.png" alt="連桿運動結構優化後" width="900" height="900" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </div>
+
+        <div class="case-block" style="margin-top: 32px;">
+          <h3>Position 1</h3>
+          <ul>
+            <li>Ribs and end-face strength were insufficient — risk of cracking and bending. <em>Improvement:</em> add ribs, increase wall thickness, enlarge connections.</li>
+            <li>Screw installation space was insufficient; screws had to tilt. <em>Improvement:</em> add clearance and adjustment features for reliable fastening.</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <h3>Position 2</h3>
+          <ul>
+            <li>No mechanical positioning; all screw-fixed — bearing block needed high strength but screw fixation was weak. <em>Improvement:</em> add positioning stops on the first accessory; ensure accuracy.</li>
+            <li>Accessory 2 screw direction opposed the main body. <em>Improvement:</em> align assembly direction after customer alignment; unify screw sizes where possible to save time and fastener cost.</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <h3>Position 3</h3>
+          <ul>
+            <li>Similar positioning issue on another component — add stop features and guarantee accuracy.</li>
+            <li>Two screws insufficient — increase to four for fixation strength.</li>
+          </ul>
+          <figure class="case-figure" style="margin-top: 16px;">
+            <img src="image/31-32.png" alt="Position 3 優化要點 31、32 示意" width="800" height="800" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+
+        <div class="card" style="margin-top: 8px;">
+          <h3 style="margin-top: 0;">改善方案與效果 · Improvement plan &amp; effect</h3>
+          <p style="color: var(--muted);"><strong>A.</strong> Strengthen thin areas of accessory 1 → better quality; fewer design iterations (−1 round).</p>
+          <p style="color: var(--muted);"><strong>B.</strong> Two screw fixing blocks stabilised → transmission quality and reliability up; development iterations reduced by 1–3 rounds.</p>
+          <p style="color: var(--muted);"><strong>C.</strong> Consistent screw assembly direction and verified gaps → higher assembly efficiency; fewer iterations (−1).</p>
+          <p style="color: var(--ink); margin-top: 16px;">Client satisfaction: project <strong>development cycle</strong> expected to shorten by <strong>&gt;3 weeks</strong>; <strong>development cost</strong> ~<strong>−20%</strong>; <strong>production &amp; assembly cost</strong> ~<strong>−15%</strong>.</p>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><strong>&gt;3 weeks</strong><span>Development cycle reduction (est.)</span></div>
+          <div class="metric"><strong>−20%</strong><span>Development cost (est.)</span></div>
+          <div class="metric"><strong>−15%</strong><span>Production &amp; assembly cost (est.)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cost" style="background: var(--white);">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>成本優勢 · Cost Advantages</h2>
+          <span class="en">Cycle · Tooling · Supply chain · Factory direct</span>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Development cycle &amp; iteration</h3>
+            <p>Strong structural development capability typically closes appearance and assembly issues within about <strong>two major revision cycles</strong> — saving time and engineering cost versus open-loop trial production.</p>
+            <p style="margin-top: 12px; color: var(--muted); font-size: 14px;">Reference case (connecting rod structure): measurable cycle and cost improvements as quoted in the optimisation section above.</p>
+          </div>
+          <div class="card">
+            <h3>Mold &amp; tooling economics</h3>
+            <p>Examples from our practice: <strong>1600T</strong> class die-casting mold quoted around <strong>€35,000</strong> at factory pricing level; <strong>multi-cavity / multi-product on one mold</strong> where feasible; optional <strong>shared mold frame</strong> strategies for lower capital outlay (with agreed precision trade-offs).</p>
+          </div>
+          <div class="card">
+            <h3>Supply chain</h3>
+            <p>Mature, responsive supplier network in the Pearl River Delta for materials, secondary processes (coating, anodising, etc.) and quick-turn components.</p>
+          </div>
+          <div class="card">
+            <h3>Factory direct supply</h3>
+            <p>Injection moulding, die casting, stamping and related processes sourced at <strong>direct factory pricing</strong>, reducing layers of margin and communication overhead.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="section-inner">
+      <div class="section-head" style="border-color: rgba(255,255,255,0.25);">
+        <h2 style="color: #fff;">聯繫我們 · Contact</h2>
+        <span class="en" style="color: var(--gold-soft);">Bigbuy Global HK Limited</span>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h3>Company</h3>
+          <p><strong>Bigbuy Global HK Limited</strong></p>
+          <p style="opacity: 0.85;">Preferred domain: <a href="https://bigbuyglobal-hk.com" target="_blank" rel="noopener">bigbuyglobal-hk.com</a> (configure DNS when live)</p>
+        </div>
+        <div>
+          <h3>Contact person</h3>
+          <p><strong>Sansonlam</strong></p>
+          <p>Tel: <a href="tel:+8615899914890">+86-15899914890</a></p>
+          <p>Email: <a href="mailto:info@bigbuyglobal-hk.com">info@bigbuyglobal-hk.com</a> <span style="opacity: 0.7; font-size: 12px;">(suggested — update to your live mailbox)</span></p>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <p>
+            <strong>RM03, 24/F, Ho King Comm Ctr, 2-16 Fayuen ST, Mongkok Kowloon, Hong Kong</strong><br />
+            香港九龍旺角花園街2-16號好景商業中心24樓03室<br />
+            <span style="opacity: 0.85;">Production base: <strong>Dongguan, Guangdong Province</strong>, China.</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © Bigbuy Global HK Limited · Static preview page · Content sourced from project briefs (website content &amp; company profile deck)
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
