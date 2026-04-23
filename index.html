@@ -270,6 +270,10 @@
       }
     }
     .hero-client-cell {
+      display: grid;
+      grid-template-rows: auto auto;
+      align-items: center;
+      justify-items: center;
       background: rgba(255, 255, 255, 0.96);
       border-radius: var(--radius);
       padding: 14px 12px 16px;
@@ -278,14 +282,17 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
     .hero-client-name {
+      grid-row: 2;
       font-weight: 700;
       font-size: 12px;
       letter-spacing: 0.05em;
       color: var(--navy);
-      margin-bottom: 12px;
+      margin-top: 12px;
+      margin-bottom: 0;
       line-height: 1.35;
     }
     .hero-client-cell img {
+      grid-row: 1;
       width: 100%;
       max-height: 56px;
       object-fit: contain;
@@ -486,20 +493,20 @@
           <h3>Selected customers we have served</h3>
           <div class="hero-client-grid" role="list">
             <div class="hero-client-cell" role="listitem">
-              <div class="hero-client-name">Continental</div>
               <img src="image/customer-1.png" alt="Continental" width="320" height="120" loading="lazy" decoding="async" />
+              <div class="hero-client-name">Continental</div>
             </div>
             <div class="hero-client-cell" role="listitem">
-              <div class="hero-client-name">Lingxiao</div>
               <img src="image/customer-2.png" alt="Lingxiao" width="320" height="120" loading="lazy" decoding="async" />
+              <div class="hero-client-name">Lingxiao</div>
             </div>
             <div class="hero-client-cell" role="listitem">
+              <img src="image/customer-3.png" alt="Mercedes-Benz" width="320" height="120" loading="lazy" decoding="async" />
               <div class="hero-client-name">Mercedes-Benz</div>
-              <img src="image/customer-4.png" alt="Mercedes-Benz" width="320" height="120" loading="lazy" decoding="async" />
             </div>
             <div class="hero-client-cell" role="listitem">
+              <img src="image/customer-4.png" alt="Volkswagen" width="320" height="120" loading="lazy" decoding="async" />
               <div class="hero-client-name">Volkswagen</div>
-              <img src="image/customer-3.png" alt="Volkswagen" width="320" height="120" loading="lazy" decoding="async" />
             </div>
           </div>
           <p style="margin-top: 16px; font-size: 14px; opacity: 0.85; max-width: 640px;">
