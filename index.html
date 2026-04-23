@@ -253,23 +253,45 @@
       font-size: 14px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
       margin: 0 0 16px;
     }
-    .client-logos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .hero .clients h3 {
+      color: rgba(255, 255, 255, 0.85);
     }
-    .client-logos span {
-      padding: 14px 20px;
-      background: var(--white);
-      border: 1px solid var(--line);
+    .hero-client-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 920px;
+    }
+    @media (max-width: 780px) {
+      .hero-client-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .hero-client-cell {
+      background: rgba(255, 255, 255, 0.96);
       border-radius: var(--radius);
+      padding: 14px 12px 16px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    .hero-client-name {
       font-weight: 700;
-      font-size: 13px;
-      color: var(--navy-light);
-      letter-spacing: 0.04em;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .hero-client-cell img {
+      width: 100%;
+      max-height: 56px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      margin: 0 auto;
     }
 
     .philosophy {
@@ -421,33 +443,6 @@
       display: block;
     }
 
-    .customer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      align-items: stretch;
-    }
-    .customer-card {
-      margin: 0;
-      padding: 24px 20px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100px;
-    }
-    .customer-card img {
-      width: 100%;
-      max-width: 220px;
-      max-height: 72px;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-    }
-
     @media (max-width: 640px) {
       .nav-inner { flex-direction: column; align-items: flex-start; }
       nav ul { justify-content: flex-start; }
@@ -467,7 +462,6 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#products">Products</a></li>
-          <li><a href="#clients">Clients</a></li>
           <li><a href="#design">Design &amp; Optimization</a></li>
           <li><a href="#cost">Cost Advantages</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -490,11 +484,23 @@
         </div>
         <div class="clients" style="margin-top: 48px;">
           <h3>Selected customers we have served</h3>
-          <div class="client-logos" role="list">
-            <span role="listitem">Continental</span>
-            <span role="listitem">Lingxiao</span>
-            <span role="listitem">Mercedes-Benz</span>
-            <span role="listitem">Volkswagen</span>
+          <div class="hero-client-grid" role="list">
+            <div class="hero-client-cell" role="listitem">
+              <div class="hero-client-name">Continental</div>
+              <img src="image/customer-1.png" alt="Continental" width="320" height="120" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-client-cell" role="listitem">
+              <div class="hero-client-name">Lingxiao</div>
+              <img src="image/customer-2.png" alt="Lingxiao" width="320" height="120" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-client-cell" role="listitem">
+              <div class="hero-client-name">Mercedes-Benz</div>
+              <img src="image/customer-4.png" alt="Mercedes-Benz" width="320" height="120" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-client-cell" role="listitem">
+              <div class="hero-client-name">Volkswagen</div>
+              <img src="image/customer-3.png" alt="Volkswagen" width="320" height="120" loading="lazy" decoding="async" />
+            </div>
           </div>
           <p style="margin-top: 16px; font-size: 14px; opacity: 0.85; max-width: 640px;">
             We have participated in the development and manufacturing of <strong>more than four thousand</strong> different product components. Our team brings deep know-how in design, assembly and manufacturing solutions, plus practical experience in process optimization and cost control for existing products.
@@ -582,25 +588,6 @@
           <article class="product-card"><div class="product-thumb"><img src="image/2.16.png" alt="工程車進氣彎頭一體" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.16</span><h4>工程車進氣彎頭一體</h4><p class="sub">Engineering vehicle intake elbow (one-piece)</p></article>
           <article class="product-card"><div class="product-thumb"><img src="image/2.17.png" alt="電子蓋板（EMI 塗層）" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.17</span><h4>電子蓋板（EMI 塗層）</h4><p class="sub">Electronic cover plate (EMI coating)</p></article>
           <article class="product-card"><div class="product-thumb"><img src="image/2.18.png" alt="鋁合金陽極油路三通接頭" width="600" height="600" loading="lazy" decoding="async" /></div><span class="idx">2.18</span><h4>鋁合金陽極油路三通接頭</h4><p class="sub">Aluminum anodized oil circuit tee fitting</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="clients" style="background: var(--paper);">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2>合作客戶 · Clients</h2>
-          <span class="en">Partners we have served</span>
-        </div>
-        <p style="max-width: 720px; color: var(--muted); margin: -24px 0 28px;">
-          多年來服務汽車零部件、機械與電子電器等領域客戶；以下為部分合作客戶標識展示。<br />
-          Serving customers across automotive components, machinery and electronics — selected partner marks below.
-        </p>
-        <div class="customer-grid">
-          <figure class="customer-card"><img src="image/customer-1.png" alt="合作客戶 1" width="320" height="120" loading="lazy" decoding="async" /></figure>
-          <figure class="customer-card"><img src="image/customer-2.png" alt="合作客戶 2" width="320" height="120" loading="lazy" decoding="async" /></figure>
-          <figure class="customer-card"><img src="image/customer-3.png" alt="合作客戶 3" width="320" height="120" loading="lazy" decoding="async" /></figure>
-          <figure class="customer-card"><img src="image/customer-4.png" alt="合作客戶 4" width="320" height="120" loading="lazy" decoding="async" /></figure>
         </div>
       </div>
     </section>
