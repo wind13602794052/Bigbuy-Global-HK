@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-将 image/ 下的图片压缩并输出到 image_thumb/
+从项目根目录的 image/ 读取图片，压缩并输出到项目根目录的 image_thumb/。
 依赖：pip install Pillow
 
 输出文件体积不超过 MAX_FILE_BYTES（默认 200KB）。
 源文件本身已小于等于该上限时，不进行缩放压缩，但仍会叠加水印并保存。
-水印使用脚本同目录下的 Wechat.jpg，居中叠放；水印较长边为原图较长边的十分之一。
+水印使用 py/Wechat.jpg，居中叠放，较长边为原图较长边的十分之一，透明度 50%。
 
-用法：python compress_images.py
+用法（在项目根目录）：python py/compress_images.py
 """
 
 from __future__ import annotations
@@ -22,8 +22,9 @@ except ImportError:
     sys.exit(1)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-SRC_DIR = SCRIPT_DIR / "image"
-DST_DIR = SCRIPT_DIR / "image_thumb"
+PROJECT_ROOT = SCRIPT_DIR.parent
+SRC_DIR = PROJECT_ROOT / "image"
+DST_DIR = PROJECT_ROOT / "image_thumb"
 WATERMARK_PATH = SCRIPT_DIR / "Wechat.jpg"
 
 MAX_SIDE = 1200
@@ -40,6 +41,8 @@ SHRINK_FACTOR = 0.88
 MAX_SHRINK_ROUNDS = 64
 # 水印较长边 = 原图较长边 × 该比例（十分之一）
 WATERMARK_LONG_EDGE_RATIO = 0.1
+# 水印不透明度（1 为完全不透明）；50% 透明度即 alpha × 0.5
+WATERMARK_OPACITY = 0.5
 
 ALLOWED_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 
@@ -51,7 +54,7 @@ def load_watermark(path: Path) -> Image.Image:
 
 
 def apply_center_watermark(base: Image.Image, wm: Image.Image) -> Image.Image:
-    """将水印置于 base 中央；水印较长边缩放为原图较长边的 WATERMARK_LONG_EDGE_RATIO。"""
+    """将水印置于 base 中央；按 WATERMARK_LONG_EDGE_RATIO 缩放，并按 WATERMARK_OPACITY 调整不透明度。"""
     base_rgba = base.convert("RGBA")
     wm_rgba = wm.convert("RGBA")
     bw, bh = base_rgba.size
@@ -77,6 +80,10 @@ def apply_center_watermark(base: Image.Image, wm: Image.Image) -> Image.Image:
         nh2 = max(1, int(wh * fit))
         wm_rgba = wm_rgba.resize((nw2, nh2), Image.Resampling.LANCZOS)
         ww, wh = wm_rgba.size
+
+    r, g, b, alpha = wm_rgba.split()
+    alpha = alpha.point(lambda p: min(255, int(round(p * WATERMARK_OPACITY))))
+    wm_rgba = Image.merge("RGBA", (r, g, b, alpha))
 
     x = (bw - ww) // 2
     y = (bh - wh) // 2
@@ -220,7 +227,7 @@ def main() -> int:
 
     if not WATERMARK_PATH.is_file():
         print(
-            f"未找到水印文件: {WATERMARK_PATH}\n请将 Wechat.jpg 放在项目根目录（与脚本同级）。",
+            f"未找到水印文件: {WATERMARK_PATH}\n请将 Wechat.jpg 放在 py 目录下（与 compress_images.py 同级）。",
             file=sys.stderr,
         )
         return 1
