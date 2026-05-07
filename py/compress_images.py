@@ -36,7 +36,7 @@ except ImportError:
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-SRC_DIR = PROJECT_ROOT / "image2"
+SRC_DIR = PROJECT_ROOT / "image"
 DST_DIR = PROJECT_ROOT / "image_thumb"
 WATERMARK_PATH = SCRIPT_DIR / "Wechat.jpg"
 
