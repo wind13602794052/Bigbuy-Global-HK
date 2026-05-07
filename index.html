@@ -143,6 +143,12 @@
       font-size: 1.02rem;
       margin: 0 0 28px;
     }
+    .hero .clients p a {
+      color: var(--gold-soft);
+    }
+    .hero .clients p a:hover {
+      text-decoration: underline;
+    }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -207,8 +213,13 @@
 
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 28px;
+    }
+    @media (max-width: 640px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
     }
     .card {
       background: var(--white);
@@ -260,13 +271,20 @@
     }
     .hero-client-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
-      max-width: 920px;
+      max-width: 720px;
     }
     @media (max-width: 780px) {
       .hero-client-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 520px;
+      }
+    }
+    @media (max-width: 420px) {
+      .hero-client-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
       }
     }
     .hero-client-cell {
@@ -478,8 +496,7 @@
       <nav aria-label="Primary">
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">Overview</a></li>
-          <li><a href="#development">Development</a></li>
+          <li><a href="#development">Development and optimization</a></li>
           <li><a href="#diecast">Products</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -518,60 +535,17 @@
               <img src="image/customer-4.png" alt="Volkswagen" width="320" height="120" loading="lazy" decoding="async" />
               <div class="hero-client-name">Volkswagen</div>
             </div>
+            <div class="hero-client-cell" role="listitem">
+              <img src="image/customer-5.png" alt="Volkswagen" width="320" height="120" loading="lazy" decoding="async" />
+              <div class="hero-client-name">S&B</div>
+            </div>
           </div>
           <p style="margin-top: 16px; font-size: 14px; opacity: 0.85; max-width: 640px;">
             We have participated in the development and manufacturing of <strong>more than four thousand</strong> different product components. Our team brings deep know-how in design, assembly and manufacturing solutions, plus practical experience in process optimization and cost control for existing products.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2>我們做什麼 · What we do</h2>
-          <span class="en">Main services — samples, molds &amp; OEM / ODM</span>
-        </div>
-        <div class="grid-2 bilingual">
-          <div class="card">
-            <h3>Company profile</h3>
-            <div class="en-block">
-              <p>We always uphold the philosophy of <strong>“Engineering with craftsmanship and boundless innovation”</strong>. We look forward to being your premium OEM / ODM partner for mutual success. Services have extended from OEM / ODM to B2B — see <a href="https://www.bigbuy.cn" target="_blank" rel="noopener">bigbuy.cn</a> for details.</p>
-            </div>
-            <p class="zh">我們始終奉行「精工匠心，創新無界」的企業理念，誠摯期待成為您優質的 OEM／ODM 服務合作夥伴，攜手共贏。除 OEM／ODM 外，我們亦將服務延伸至 B2B，詳情請瀏覽 bigbuy.cn。</p>
-          </div>
-          <div class="card">
-            <h3>Core advantages</h3>
-            <p style="color: var(--muted); margin-bottom: 12px;">Integrated capability from structure to tooling and quick iteration — aligned with our Hong Kong–Greater Bay Area operating model.</p>
-            <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px;">
-              <li><strong>Structural design support:</strong> strength &amp; transmission; assembly &amp; joints; appearance; mold &amp; integrated forming support.</li>
-              <li><strong>Rapid prototyping:</strong> sample cycles as fast as ~4 weeks (project-dependent).</li>
-              <li><strong>Cost optimization:</strong> direct factory interface; mature supply chain.</li>
-              <li><strong>Quality first:</strong> drawings, technical dialogue, and rigorous review loops.</li>
-            </ul>
-            <div class="pill-row">
-              <span class="pill">Design for manufacturing</span>
-              <span class="pill">Die casting &amp; injection</span>
-              <span class="pill">Small batch</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-top: 28px;">
-          <div class="card">
-            <h3>Engineering dimensions we optimise</h3>
-            <p style="color: var(--muted); font-size: 15px;"><strong>Functional / structural:</strong> manufacturing strength, assembly strength, function strength; assembly sequence; integrated injection &amp; die casting; cost.</p>
-            <p style="color: var(--muted); font-size: 15px; margin-top: 10px;"><strong>Exterior / finishing:</strong> colour harmony, plastic grain &amp; shrinkage; finishing options (painting, powder, e-coat, anodising, etc.); assembly gaps; markings (screen print, UV, laser).</p>
-          </div>
-          <div class="card">
-            <h3>Team credentials (summary)</h3>
-            <p style="color: var(--muted); font-size: 15px;">Senior mechanical engineers with long-term experience in Taiwanese-invested enterprises (engineering &amp; mold management). Track record covering thousands of accessory and component programs with stable delivery into production.</p>
-          </div>
-        </div>
-
-        <div class="philosophy">
-          <p>精工匠心，創新無界</p>
-          <p class="en-quote">“Engineering with craftsmanship and boundless innovation.”</p>
+          <p style="margin-top: 16px; font-size: 14px; opacity: 0.85; max-width: 640px;">
+            We always uphold the philosophy of <strong>“Engineering with craftsmanship and boundless innovation”</strong>. We look forward to being your premium OEM / ODM partner for mutual success. Services have extended from OEM / ODM to B2B — see <a href="https://www.bigbuy.cn" target="_blank" rel="noopener noreferrer">bigbuy.cn</a> for details.
+          </p>
         </div>
       </div>
     </section>
@@ -579,8 +553,7 @@
     <section id="development">
       <div class="section-inner">
         <div class="section-head">
-          <h2>開發優勢 · Development strengths</h2>
-          <span class="en">Cycle, tooling &amp; supply chain — aluminum connecting rod example</span>
+          <h2>Development and optimization</h2>
         </div>
         <div class="grid-2">
           <div class="card">
