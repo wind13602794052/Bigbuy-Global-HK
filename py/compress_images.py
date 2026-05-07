@@ -14,11 +14,16 @@ OCR 使用多路预处理（对比度/锐化/小图放大）+ 宽松检测参数
 无简中结果时会自动再试繁体+英文。仅繁体图可设环境变量 OCR_LANG_ONLY=tra。
 仍无结果可调低 OCR_MIN_CONFIDENCE 或设 OCR_DEBUG=1 查看识别片段。
 
-用法（在项目根目录）：python py/compress_images.py
+文字识别开关：
+  --no-ocr          关闭 OCR，水印始终居中（不加载 EasyOCR，启动更快）
+  OCR_ENABLE=0      与 --no-ocr 等价（便于脚本/CI）
+
+用法（在项目根目录）：python py/compress_images.py [--no-ocr]
 """
 
 from __future__ import annotations
 
+import argparse
 import os
 import sys
 from pathlib import Path
@@ -43,9 +48,9 @@ MAX_FILE_BYTES = 200 * 1024
 MIN_JPEG_QUALITY = 15
 SHRINK_FACTOR = 0.88
 MAX_SHRINK_ROUNDS = 64
-WATERMARK_LONG_EDGE_RATIO = 0.1
+WATERMARK_LONG_EDGE_RATIO = 0.3
 WATERMARK_OPACITY = 0.5
-
+OCR_ENABLE = 0
 # OCR：识别框置信度下限（略低以提高召回；误检多可调高到 0.2～0.3）
 OCR_MIN_CONFIDENCE = 0.12
 # 长边小于此像素时，生成放大版专供 OCR（工业图里小字更清晰）
@@ -61,6 +66,24 @@ OCR_DETECT_LINK_THRESHOLD = 0.32
 OCR_DETECT_MAG_RATIO = 2.4
 
 ALLOWED_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+
+
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        description="压缩 image 输出到 image_thumb，可选 OCR 将水印对齐到文字区域",
+    )
+    p.add_argument(
+        "--no-ocr",
+        action="store_true",
+        help="关闭文字识别（不加载 EasyOCR），水印始终在画布中央",
+    )
+    return p.parse_args()
+
+
+def env_ocr_enabled() -> bool:
+    """环境变量 OCR_ENABLE：默认开启；0/false/no/off 表示关闭。"""
+    v = os.environ.get("OCR_ENABLE", "1").strip().lower()
+    return v not in ("0", "false", "no", "off")
 
 
 def load_watermark(path: Path) -> Image.Image:
@@ -456,6 +479,9 @@ def save_under_max_bytes(im: Image.Image, path: Path, ext: str) -> bool:
 
 
 def main() -> int:
+    args = parse_args()
+    use_ocr = env_ocr_enabled() and not args.no_ocr
+
     if not SRC_DIR.is_dir():
         print(
             f"未找到源目录: {SRC_DIR}\n请先创建 image 文件夹并放入图片。",
@@ -476,8 +502,18 @@ def main() -> int:
         print(f"无法读取水印图片: {WATERMARK_PATH} ({e})", file=sys.stderr)
         return 1
 
-    ocr_run, ocr_status = build_ocr_anchor_fn()
-    print(ocr_status, flush=True)
+    if use_ocr:
+        ocr_run, ocr_status = build_ocr_anchor_fn()
+        print(ocr_status, flush=True)
+    else:
+        ocr_run = None
+        reason = []
+        if args.no_ocr:
+            reason.append("--no-ocr")
+        if not env_ocr_enabled():
+            reason.append("OCR_ENABLE=0")
+        detail = "、".join(reason) if reason else "配置"
+        print(f"OCR 已关闭（{detail}），水印居中", flush=True)
 
     DST_DIR.mkdir(parents=True, exist_ok=True)
 
